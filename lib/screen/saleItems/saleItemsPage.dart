@@ -151,16 +151,35 @@ class _SaleItemsPageState extends State<SaleItemsPage> {
                                 DataCell(Text('${itemcell[index]['number']}')),
                                 DataCell(Text('${itemcell[index]['name']}')),
                                 DataCell(Text('${itemcell[index]['price']}')),
-                                DataCell(Chip(
-                                    labelPadding: EdgeInsets.all(2.0),
-                                    elevation: 6.0,
-                                    shadowColor: Colors.grey[60],
-                                    backgroundColor:
-                                        itemcell[index]['status'] == 'สำเร็จ'
-                                            ? Colors.green
-                                            : Colors.red,
-                                    label:
-                                        Text('${itemcell[index]['status']}'))),
+                                DataCell(Container(
+                                  width: 100,
+                                  height: 40,
+                                  decoration: BoxDecoration(
+                                      color:
+                                          itemcell[index]['status'] == 'สำเร็จ'
+                                              ? Colors.green
+                                              : Colors.red,
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(20))),
+                                  child: Center(
+                                      child: Text(
+                                    '${itemcell[index]['status']}',
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold),
+                                  )),
+                                )
+                                    // Chip(
+                                    //   labelPadding: EdgeInsets.all(2.0),
+                                    //   elevation: 6.0,
+                                    //   shadowColor: Colors.grey[60],
+                                    //   backgroundColor:
+                                    //       itemcell[index]['status'] == 'สำเร็จ'
+                                    //           ? Colors.green
+                                    //           : Colors.red,
+                                    //   label:
+                                    //       Text('${itemcell[index]['status']}'))
+                                    ),
                                 DataCell(IconButton(
                                     onPressed: () {
                                       Navigator.push(
